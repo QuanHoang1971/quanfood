@@ -1,0 +1,135 @@
+/* rem và en ko ảnh hưởng bởi HTML font size
+thay vào đó trong query thì 1rem = 1em= 16px 
+vì ở 1 số Browser rem hiển thị lỗi, nên thay vào đó dùng em và px */
+/* Chủ yếu thiết bị hiển thị ở 1200px nên chỉ responsive
+tương đối thôi, ko hoàn hảo tất cả size đc */
+
+/* kiểm tra xem ở chế độ xem điện thoại ipad có vị vỡ, thay đổi cấu trúc ko
+xem các đoạn text có bị xuống dòng khó đọc ko */
+@media (max-width: 84em) {
+.hero {
+max-width: 120rem;
+}
+
+.heading-primary {
+    font-size: 4.4rem;
+}
+
+.gallery {
+  grid-template-columns: repeat(2, 1fr);
+  /* chỉnh trong query.css sẽ chỉ ảnh hưởng
+  khi responsive ở các kích thước khác nhau
+  bth hiển thị trên PC ko sao cả */
+
+  /* để font 9px /16 =0.5625 */
+  @media (max-width: 75em) {
+html{
+    font-size: 56.25%;
+}
+  }
+  /* thay vì chỉnh font từng nơi thì trick ở đây 
+  là thay font size ở html */
+
+      @media (max-width: 34em) {
+  .grid {
+    row-gap: 4.8rem;
+  }
+
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+
+  .hero {
+    padding: 0 3.2rem;
+  }
+
+  .hero-img {
+    width: 80%;
+  }
+
+  .logos img {
+    height: 1.2rem;
+  }
+
+  .step-img-box:nth-child(2) {
+    grid-row: 1;
+  }
+
+  .step-img-box:nth-child(6) {
+    grid-row: 5;
+  }
+
+  .step-img-box {
+    transform: translateY(2.4rem);
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-text-box {
+    padding: 3.2rem;
+  }
+
+  .cta-img-box {
+    height: 32rem;
+    grid-row: 1;
+  }
+}
+
+/* Tablet */
+@media (max-width: 44em) {
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .diets {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .heading-secondary {
+    margin-bottom: 4.8rem;
+  }
+
+  .pricing-plan {
+    width: 100%;
+  }
+
+  .grid--footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .logo-col,
+  .address-col {
+    grid-column: span 3;
+  }
+
+  .nav-col {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+}
